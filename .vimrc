@@ -19,9 +19,16 @@ ino <right> <Nop>
 ino <down> <Nop>
 ino <left> <Nop>
 
-"set list
+"remap movement keys for dvorak
+noremap s l
+noremap h k
+noremap t j
+noremap n h
+
+
+set list
 "set statusline=SL%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-set listchars=eol:¬,tab:――,trail:~,extends:>,precedes:<,space:·
+"let listchars=eol:¬ ",tab:――,trail:~,extends:>,precedes:<,space:·
 syntax on
 set background=dark
 colorscheme solarized
