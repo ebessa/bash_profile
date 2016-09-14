@@ -7,6 +7,8 @@ set backspace=2
 set hlsearch
 set incsearch
 set smartcase
+set expandtab
+set tabstop=2
 
 "altera bindings de setas
 no <up> :m -2<CR>
@@ -26,13 +28,15 @@ noremap t j
 noremap n h
 noremap b n
 
+" mappings
+map <C-n> :NERDTreeToggle<CR>
 
-set list
+"set list
 "set statusline=SL%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 "let listchars=eol:¬ ",tab:――,trail:~,extends:>,precedes:<,space:·
 syntax on
 set background=dark
-colorscheme solarized
+colorscheme molokai
 set guifont=UbuntuMonoDerivativePowerline\ Nerd\ Font\ Complete:h14
 
 "NeoBundle Scripts-----------------------------
@@ -90,6 +94,16 @@ NeoBundleCheck
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
