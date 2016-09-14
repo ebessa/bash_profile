@@ -9,10 +9,10 @@ set incsearch
 set smartcase
 
 "altera bindings de setas
-no <up> ddkp 
+no <up> :m -2<CR>
 no <right> <Nop>
-no <down> ddp
 no <left> <Nop>
+no <down> :m +1<CR>
 
 ino <up> <Nop>
 ino <right> <Nop>
@@ -24,6 +24,7 @@ noremap s l
 noremap h k
 noremap t j
 noremap n h
+noremap b n
 
 
 set list
