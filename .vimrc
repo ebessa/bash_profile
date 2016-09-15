@@ -31,6 +31,10 @@ noremap b n
 " mappings
 map <C-n> :NERDTreeToggle<CR>
 
+
+set runtimepath+=~/.vim/bundle/vim-colorschemes
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+
 "set list
 "set statusline=SL%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 "let listchars=eol:¬ ",tab:――,trail:~,extends:>,precedes:<,space:·
@@ -43,9 +47,6 @@ set guifont=UbuntuMonoDerivativePowerline\ Nerd\ Font\ Complete:h14
 if &compatible
   set nocompatible  " Be iMproved
 endif
-
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('/Users/erickbessa/.vim/bundle'))
@@ -80,7 +81,7 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Required:
- call neobundle#end()
+call neobundle#end()
 
 " Required:
 filetype plugin indent on
