@@ -75,6 +75,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'valloric/youcompleteme'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
