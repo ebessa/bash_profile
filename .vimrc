@@ -22,11 +22,14 @@ ino <down> <Nop>
 ino <left> <Nop>
 
 "remap movement keys for dvorak
-noremap s l
 noremap h k
 noremap t j
 noremap n h
-noremap b n
+noremap s l
+map k <Nop>
+map j <Nop>
+"map h <Nop>
+map l <Nop>
 
 " mappings
 map <C-n> :NERDTreeToggle<CR>
