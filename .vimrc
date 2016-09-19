@@ -31,10 +31,6 @@ map j <Nop>
 "map h <Nop>
 map l <Nop>
 
-" mappings
-map <C-n> :NERDTreeToggle<CR>
-
-
 set runtimepath+=~/.vim/bundle/vim-colorschemes
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 
@@ -98,6 +94,7 @@ NeoBundleCheck
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
+map <C-n> :NERDTreeToggle<CR>
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -108,6 +105,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" emmet config
+let g:user_emmet_expandabbr_key='<Tab>'
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
