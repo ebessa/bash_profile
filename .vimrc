@@ -22,14 +22,14 @@ ino <down> <Nop>
 ino <left> <Nop>
 
 "remap movement keys for dvorak
-noremap h k
-noremap t j
-noremap n h
-noremap s l
-map k <Nop>
-map j <Nop>
+"noremap h k
+"noremap t j
+"noremap n h
+"noremap s l
+"map k <Nop>
+"map j <Nop>
 "map h <Nop>
-map l <Nop>
+"map l <Nop>
 
 set runtimepath+=~/.vim/bundle/vim-colorschemes
 set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -95,7 +95,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeMapOpenInTab='k'
+"let NERDTreeMapOpenInTab='k'
 
 " syntastic
 set statusline+=%#warningmsg#
