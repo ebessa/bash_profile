@@ -9,6 +9,7 @@ set incsearch
 set smartcase
 set expandtab
 set tabstop=2
+set autoread "auto-reload changed file
 
 "altera bindings de setas
 no <up> :m -2<CR>
