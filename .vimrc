@@ -139,5 +139,8 @@ endfunction
   call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
   call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
   call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
+
 " Ctrlp
 let g:ctrlp_map = '<c-p>'
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+
