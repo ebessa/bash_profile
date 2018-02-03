@@ -1,5 +1,11 @@
+syntax on
+filetype plugin indent on 
 " Config gerais
+set autoread
+set nowrap
+set nocompatible  " Be iMproved
 set number
+set relativenumber
 set ruler
 set title
 set encoding=utf8
@@ -9,7 +15,24 @@ set incsearch
 set smartcase
 set expandtab
 set tabstop=2
-set autoread "auto-reload changed file
+set shiftwidth=2
+set guicursor=i:ver25-iCursor " make cursor a thin line
+" set directory=$HOME/.vim/swapfiles//
+set noswapfile
+set backupdir=$HOME/.vim/backup//
+set clipboard=unnamed " enable copy/past between vim/OS
+set colorcolumn=120 " draw a vertical line at specified column"
+set background=dark
+if (has("termguicolors"))    " Set 16m colors
+ set termguicolors
+endif
+" map leader
+let mapleader=","
+
+" set blank characters with colors
+set list
+set listchars=tab:‣\ ,trail:·,precedes:«,extends:»
+" highlight NonText ctermfg=237 ctermbg=Blue guifg=NONE cterm=NONE
 
 "altera bindings de setas
 no <up> :m -2<CR>
@@ -17,100 +40,108 @@ no <right> <Nop>
 no <left> <Nop>
 no <down> :m +1<CR>
 
+" Write buffer
+nmap <leader>w :w<CR>
+
+nnoremap <Space> za "toggle block code
+
+" resize tabs
+map <leader><up> 5<C-w>+
+map <leader><down> 5<C-w>-
+map <leader><right> 5<C-w>>
+map <leader><left> 5<C-w><
+
 ino <up> <Nop>
 ino <right> <Nop>
 ino <down> <Nop>
 ino <left> <Nop>
 
-"remap movement keys for dvorak
-"noremap h k
-"noremap t j
-"noremap n h
-"noremap s l
-"map k <Nop>
-"map j <Nop>
-"map h <Nop>
-"map l <Nop>
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=NONE ctermbg=233
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=NONE ctermbg=235
 
-set runtimepath+=~/.vim/bundle/vim-colorschemes
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-
-"set list
-"set statusline=SL%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-"let listchars=eol:¬ ",tab:――,trail:~,extends:>,precedes:<,space:·
-syntax on
-set background=dark
-colorscheme molokai
-set guifont=UbuntuMonoDerivativePowerline\ Nerd\ Font\ Complete:h14
-
-"NeoBundle Scripts-----------------------------
-if &compatible
-  set nocompatible  " Be iMproved
-endif
-
+set runtimepath+=~/.vim/bundle/Vundle.vim
 " Required:
-call neobundle#begin(expand('/Users/erickbessa/.vim/bundle'))
+call vundle#begin()
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" vim-jsx
+let g:jsx_ext_required = 0
 
 " Add or remove your Bundles here:
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'ryanoasis/vim-devicons'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'valloric/youcompleteme'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'editorconfig/editorconfig-vim'
-
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tomasr/molokai'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'tpope/vim-fugitive'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/emmet-vim'
+Plugin 'bling/vim-airline'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'valloric/youcompleteme'
+Plugin 'honza/vim-snippets'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'mxw/vim-jsx'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'mileszs/ack.vim'
+Plugin 'junegunn/fzf'
+Plugin 'w0rp/ale'
 " You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+Plugin 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Required:
-call neobundle#end()
+call vundle#end()
+
+" color scheme
+colorscheme apprentice
 
 " Required:
-filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+
+" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_color_change_percent = 30
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level=2
+let g:indent_guides_size=1
 
 " Nerdtree
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
+let g:NERDTreeWinPos = "right"
 map <C-n> :NERDTreeToggle<CR>
 "let NERDTreeMapOpenInTab='k'
 
+" Nerdcommenter
+let g:NERDSpaceDelims = 1
+
 " syntastic
+"let g:syntastic_javascript_checkers=['eslint']
+"let g:syntastic_javascript_eslint_args = "--config /opt/loggi/web-builder/config/eslint.json"
+let g:ale_javascript_eslint_options = "--config /opt/loggi/web-builder/config/eslint.json"
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+let g:ale_set_loclist = 1
 
+"set list
 " emmet config
-let g:user_emmet_expandabbr_key='<Tab>'
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+let g:user_emmet_mode='inv'  "enable all functions, which is equal to
 
 " editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -139,8 +170,41 @@ endfunction
   call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
   call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
   call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
-
 " Ctrlp
 let g:ctrlp_map = '<c-p>'
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
+" Make ctrlp open selection in a new tab by default
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
+" fonts
+set guifont=DroidSansMono_Nerd_Font:h14
+let g:airline_powerline_fonts = 1
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+" let g:airline#extensions#tabline#formatter = 'jsformatter' "show the folder name
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>< <Plug>AirlineSelectPrevTab
+nmap <leader>> <Plug>AirlineSelectNextTab
+
+" Tests
+" Wildmenu
+set wildmenu
+set wildmode=list:longest,full
+
+" expand 'find'
+set path+=**
