@@ -1,0 +1,37 @@
+syntax on
+filetype plugin indent on 
+colorscheme apprentice                              " set the color scheme
+
+set nowrap                                          " don't wrap text
+set ruler                                           " Show the line and column numbers of the cursor.
+set nocompatible                                    " Be iMproved, disable vi compatability mode
+set tabstop=2                                       " set the default tab width
+set shiftwidth=2                                    " Indentation <, =, >.
+set showmatch                                       " Show matching brackets.
+set noswapfile                                      " dont't write .swp files.
+set clipboard=unnamed                               " enable copy/past between vim/OS.
+set backupdir=$HOME/.vim/backup//                   " Set backup dir.
+set colorcolumn=120                                 " draw a vertical line at specified column.
+set laststatus=2                                    " Always show status line
+set hlsearch                                        " highlight all search matches
+set wildmenu                                        " for command completion, show menu of available results
+set wildmode=list:longest,full                      " for command completion, show menu of available results
+set statusline+=%#warningmsg#
+set statusline+=%*
+set splitbelow                                      " Open new split panes to bottom
+set splitright                                      " Open new split panes to right
+
+" show blanks.
+if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
+  let &listchars = "tab:\u21e5\u00b7,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+  let &fillchars = "vert:\u259a,fold:\u00b7"
+else
+  set listchars=tab:‣\ ,trail:·,precedes:«,extends:»
+endif
+
+if (has("termguicolors"))                           " Set 16m colors.
+ set termguicolors
+endif
+
+let mapleader=","
+
