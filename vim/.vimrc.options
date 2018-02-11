@@ -1,10 +1,21 @@
 syntax on
 filetype plugin indent on 
-colorscheme apprentice                              " set the color scheme
 
+" <InitialConfig>
+let g:mapleader=","
+
+" set gazillion colors
+if (has("termguicolors"))                           " Set 16m colors.
+ set termguicolors
+endif
+" </InitialConfig>
+
+set list                                            " show invisibles
+set listchars=tab:⇥'                                " make tab char visible as codebase uses spaces
 set nowrap                                          " don't wrap text
 set ruler                                           " Show the line and column numbers of the cursor.
 set nocompatible                                    " Be iMproved, disable vi compatability mode
+set expandtab                                       " insert space characters whenever the tab key is pressed. if you want to enter a real tab character use Ctrl-V<Tab>
 set tabstop=2                                       " set the default tab width
 set shiftwidth=2                                    " Indentation <, =, >.
 set showmatch                                       " Show matching brackets.
@@ -14,24 +25,24 @@ set backupdir=$HOME/.vim/backup//                   " Set backup dir.
 set colorcolumn=120                                 " draw a vertical line at specified column.
 set laststatus=2                                    " Always show status line
 set hlsearch                                        " highlight all search matches
+set incsearch                                       " start searching when you type the first character of the search string
 set wildmenu                                        " for command completion, show menu of available results
 set wildmode=list:longest,full                      " for command completion, show menu of available results
 set statusline+=%#warningmsg#
 set statusline+=%*
-set splitbelow                                      " Open new split panes to bottom
-set splitright                                      " Open new split panes to right
-
-" show blanks.
-if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700
-  let &listchars = "tab:\u21e5\u00b7,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
-  let &fillchars = "vert:\u259a,fold:\u00b7"
-else
-  set listchars=tab:‣\ ,trail:·,precedes:«,extends:»
-endif
-
-if (has("termguicolors"))                           " Set 16m colors.
- set termguicolors
-endif
-
-let mapleader=","
-
+set splitbelow                                      " Open new split panes to bottom.
+set splitright                                      " Open new split panes to right.
+set guifont=DroidSansMono_Nerd_Font:h14             " Set dev font.
+let g:airline_powerline_fonts = 1                   " will automatically populate the g:airline_symbols dictionary with the powerline symbols.
+set backspace=2                                     " Make backspace go up when reached begin of line.
+set number                                          " Show line numbers.
+set relativenumber                                  " Show line numbers relative to cursor position.
+set complete-=i                                     " exclude 'include' files from autocomplete.
+set complete-=t                                     " exclude tags from autocomplete.
+set complete-=u                                     " exclude unloaded buffers from autocomplete.
+set completeopt=menuone,longest,preview             " Use the popup menu even if only one match.
+set ignorecase                                      " make search case insensitive
+set smartcase                                       " When 'ignorecase' and 'smartcase' are both on, if a pattern contains an uppercase letter, it is case sensitive, otherwise, it is not
+set scrolloff=5                                     " always keep 5 lines of context around the cursor
+set sidescrolloff=20                                " The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set.
+set showmatch                                       " Show matching brackets.
