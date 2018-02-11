@@ -25,6 +25,7 @@ brew install tmux
 brew install tree
 brew install htop
 brew install mitmproxy
+brew install the_silver_searcher #AKA Ag:
 
 # Casks
 brew tap caskroom/cask
