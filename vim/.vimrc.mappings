@@ -1,3 +1,9 @@
+" disable arrows
+ino <up> <Nop>
+ino <right> <Nop>
+ino <down> <Nop>
+ino <left> <Nop>
+
 " up arrow move line up
 no <up> :m -2<CR>
 
