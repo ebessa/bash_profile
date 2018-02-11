@@ -46,3 +46,9 @@ set smartcase                                       " When 'ignorecase' and 'sma
 set scrolloff=5                                     " always keep 5 lines of context around the cursor
 set sidescrolloff=20                                " The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set.
 set showmatch                                       " Show matching brackets.
+set hidden                                          " opening a new file when the current buffer has unsaved changes causes files to be hidden instead of closed.
+set nojoinspaces                                    " only add 1 space when joining lines (J). One. Space. Not.  two spaces.
+set nofoldenable                                    " Don't auto-fold code when opening file.
+set foldmethod=syntax                               " Works best with vim-javascript.
+set foldlevel=1                                     " only fold the fold imediate to cursor, not the entire file.
+set foldnestmax=10                                  " trying to fold identations above this number will fold to this maximum.
