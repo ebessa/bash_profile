@@ -43,6 +43,7 @@ set complete-=u                                     " exclude unloaded buffers f
 set completeopt=menuone,longest,preview             " Use the popup menu even if only one match.
 set ignorecase                                      " make search case insensitive
 set smartcase                                       " When 'ignorecase' and 'smartcase' are both on, if a pattern contains an uppercase letter, it is case sensitive, otherwise, it is not
+set scroll=5                                        " number of lines to scrolll with CTRL-D/CTRL-U"
 set scrolloff=5                                     " always keep 5 lines of context around the cursor
 set sidescrolloff=20                                " The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set.
 set showmatch                                       " Show matching brackets.
