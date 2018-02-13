@@ -33,3 +33,6 @@ map <leader><left> 5<C-w><
 
 "toggle block code
 nnoremap <Space> za
+
+" format json
+nnoremap <leader>js :silent %!python -m json.tool<CR>
