@@ -25,7 +25,9 @@ export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
 # add tmux environments
-for f in $HOME/tmux/.tmux*; do source $f; done
+for f in $HOME/tmux/.tmux*; do
+  source $f
+done
 
 # LOGGI tools
 export PATH=$PATH:/opt/loggi/ops/ansible/bin

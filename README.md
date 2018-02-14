@@ -1,5 +1,7 @@
 ```bash
 mkdir ~/vim
+ln -s ~/Projects/dotfiles/tmux ~/tmux
+ln -s ~/Projects/dotfiles/.vimrc .vimrc
 ln -s ~/Projects/dotfiles/vim ~/vim
 ln -s ~/Projects/dotfiles/.vimrc ~/.vimrc
 ln -s ~/Projects/dotfiles/.tmux.conf ~/.tmux.conf
