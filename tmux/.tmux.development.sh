@@ -11,10 +11,11 @@ function tmuxdevelopment {
 
   # Start npm in first pane of first window
   tmux select-pane -t 0
-  tmux send-keys "git status;npm start" C-m
+  tmux send-keys "cd /opt/loggi/wms-terminal-app;git status;npm start" C-m
 
   # Split second pane in first window
-  tmux splitw -h -p 30
+  tmux select-pane -t 1
+  tmux splitw -v -p 40
   tmux select-pane -t 1
   tmux send-keys "mitmproxy -p 8888" # type keys, without 'Enter'
 
@@ -30,13 +31,13 @@ function tmuxdevelopment {
 
   # Zoom in pane 1 and start vim on it
   tmux select-pane -t 0
-  tmux send-keys "vim"
 
   # Maximize vim window
   tmux resize-pane -Z
 
-  # Finally, attach to the tmux session
-  tmux attach-session -t $session
+  # Start vim
+  tmux send-keys "vim" C-m
+
 
   echo "Done!"
 }

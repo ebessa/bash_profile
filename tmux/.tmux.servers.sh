@@ -13,7 +13,7 @@ function tmuxserver {
   tmux splitw -h -p 50
   tmux select-pane -t 0
   tmux splitw -v -p 50
-  tmux select-pane -t 1
+  tmux select-pane -t 2
   tmux splitw -v -p 50
 
   # start main server
@@ -21,12 +21,12 @@ function tmuxserver {
   tmux send-keys "loggi down && loggi up && loggi run" C-m
 
   # prepare composition of docker
-  tmux select-pane -t 1
-  tmux send-keys "docker-compose -f docker-compose-standalone.yml up"
+  tmux select-pane -t 2
+  tmux send-keys "cd /opt/loggi/routing/ && docker-compose -f docker-compose-standalone.yml"
 
   # start celery app
-  tmux select-pane -t 2
-  tmux send-keys "loggi celery" C-m
+  tmux select-pane -t 1
+  tmux send-keys "loggi celery"
 
   echo "Done!"
 }
