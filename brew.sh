@@ -21,6 +21,9 @@ brew install gnu-sed --with-default-names
 # good ol' tmux
 brew install tmux
 
+# Img libs. used by gifify() at .functions
+brew install ffmpeg gifsicle imagemagick
+
 # Some useful binaries
 brew install tree
 brew install htop
