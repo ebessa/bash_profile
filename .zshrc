@@ -29,6 +29,9 @@ for f in $HOME/tmux/.tmux*; do
   source $f
 done
 
+# Functions
+source $HOME/.functions
+
 # LOGGI tools
 export PATH=$PATH:/opt/loggi/ops/ansible/bin
 
@@ -129,7 +132,6 @@ HISTFILESIZE=1000000000
 HISTSIZE=1000000000
 HISTCONTROL=ignoredups
 
-LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
 
 alias ls='ls -la -G'
 alias g='git'
@@ -141,69 +143,5 @@ alias nvmodules='cd /Users/erick.bessa/.nvm/versions/node/v8.4.0/lib/node_module
 alias rshake='adb shell input keyevent 82'
 alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
 
-function showcolors {
-  for i in {0..255} ; do
-    printf "\x1b[38;5;${i}mcolour${i}]\t"
-  done
-}
-
-function adbtext {
-  adb shell input text "$1" && adb shell input keyevent ENTER;
-}
-function satanas {
-  loggi down;
-  for e in $(docker images|awk '{print $1}'|grep -v REPOSITORY);do docker pull $e;done;
-  loggi up;
-  loggi git-hooks;
-  loggi fix-keys;
-  loggi pip-install -U;
-  loggi pip install --upgrade lxml;
-}
-
-function go { cd ~/Projects/"$1"; }
-function gfs { git flow "$1" start "$2"; }
-#gfs [hotfix/feature/etc] start [name]
-function gignore { git update-index --assume-unchanged "$1"; }
-function gunignore { git update-index --no-assume-unchanged "$1"; }
-
-function get_branch {
-    echo $(git rev-parse --abbrev-ref HEAD) #GET CURRENT BRANCH
-}
-
-function giall { # update all branches & log local changes
-    git co develop && git pu && git co master && git pu && git st;
-}
-
-function gff { # git flow finish
-    FBRANCH=$(get_branch);
-    FTYPE=$(echo "$FBRANCH" | sed 's/\([a-z]*\)\/[a-z0-9_-]*/\1/');
-    FNAME=$(echo "$FBRANCH" | sed 's/\([a-z]*\)\/\([a-z0-9_-]*\)/\2/');
-
-    echo "git co develop && git pu && git co master && git pu";
-    giall;
-
-    echo "git flow $FTYPE finish $FNAME";
-    git flow "$FTYPE" finish "$FNAME";
-}
-
-function gmg { # git merge
-    FBRANCH=$(get_branch);
-
-    git checkout "$1" && git pull;
-
-    git checkout "$FBRANCH";
-    git merge "$1"
-}
-
-function gps { # push to origin
-    git push origin $(get_branch);
-}
-
-function gtag { # create and push tag in the format yymmdd_hhmm
-    git checkout master
-    DTIME=$(date +"%y%m%d_%H%M");
-    echo "Created tag $DTIME. Pushing to remote repository..."
-    git tag "$DTIME" && git push origin "$DTIME"
-}
-
+LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
 export LS_COLORS
