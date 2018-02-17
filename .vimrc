@@ -9,3 +9,6 @@ if filereadable(expand('~/vim/plugins.vim')) | source ~/vim/plugins.vim | endif
 
 " vimplug config
 if filereadable(expand('~/vim/config.vim')) | source ~/vim/config.vim | endif
+
+" vimplug abbreviations
+if filereadable(expand('~/vim/abbreviations.vim')) | source ~/vim/abbreviations.vim | endif
