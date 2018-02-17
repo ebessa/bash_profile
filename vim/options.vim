@@ -49,7 +49,7 @@ set nojoinspaces                                    " only add 1 space when join
 set nofoldenable                                    " Don't auto-fold code when opening file.
 set foldmethod=syntax                               " Works best with vim-javascript.
 set foldlevel=1                                     " only fold the fold imediate to cursor, not the entire file.
-set foldnestmax=1                                   " trying to fold identations above this number will fold to this maximum.
+set foldnestmax=10                                  " trying to fold identations above this number will fold to this maximum.
 set cursorline                                      " highlight the line the cursor is at
 set history=1000                                    " Increase history from 20 default to 1000
 set undodir=~/.vim/undo-dir                         " set undo dir
