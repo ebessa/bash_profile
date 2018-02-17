@@ -110,3 +110,7 @@ nnoremap <silent> <Leader>h :Helptags<CR>
 nnoremap <silent> <Leader>ll :Lines<CR>
 nnoremap <silent> <Leader>lb :BLines<CR>
 " </FZF>
+
+" <ChooseWin>
+map <C-L> <Plug>(choosewin)
+" </ChooseWin>
