@@ -40,3 +40,6 @@ brew cask install android-platform-tools
 
 # react-native
 brew cask install react-native-debugger
+
+# GNU core utilities
+brew install coreutils

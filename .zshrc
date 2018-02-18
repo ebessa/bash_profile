@@ -132,8 +132,22 @@ HISTFILESIZE=1000000000
 HISTSIZE=1000000000
 HISTCONTROL=ignoredups
 
+# time to upgrade `ls`
+command -v gdircolors >/dev/null 2>&1 || alias gdircolors="dircolors"
+eval "$(gdircolors -b ~/.dircolors)"
 
-alias ls='ls -la -G'
+# use coreutils `ls` if possible…
+hash gls >/dev/null 2>&1 || alias gls="ls"
+
+# always use color, even when piping (to awk,grep,etc)
+if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; fi;
+export CLICOLOR_FORCE=1
+
+# ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
+alias ls='gls -lAh ${colorflag} --group-directories-first'
+alias lsd='ls | grep "^d"' # only directories
+
+
 alias g='git'
 alias gitst='git st'
 alias rmlocalbranch='git tag -l | xargs git tag -d && git fetch'
@@ -142,6 +156,3 @@ alias nvmodules='cd /Users/erick.bessa/.nvm/versions/node/v8.4.0/lib/node_module
 # alias vim='mvim -v'
 alias rshake='adb shell input keyevent 82'
 alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
-
-LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
-export LS_COLORS
