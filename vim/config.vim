@@ -35,24 +35,15 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
   exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-  call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
   call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
   call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-  call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
   call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-  call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
   call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-  call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-  call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-  call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-  call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-  call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-  call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+  call NERDTreeHighlightFile('scss', 'cyan', 'none', 'cyan', '#151515')
   call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#151515')
+  call NERDTreeHighlightFile('editorconfig', 'Gray', 'none', '#686868', '#151515')
   call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
   call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
-  call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
-  call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 " </NERDTree>
 
 " <Airline>
@@ -100,7 +91,7 @@ command! -bang -nargs=* Ag
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-nnoremap <silent> <C-n>ff :Files<CR>
+nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <Leader>eu :Ag<CR>
 nnoremap <silent> <Leader>fc :Colors<CR>
 nnoremap <silent> <Leader>fh :History<CR>
