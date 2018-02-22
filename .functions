@@ -23,7 +23,6 @@ function showcolors {
 
 function adbtext {
     adb shell input text "$1" && adb shell input keyevent ENTER;
-
 }
 
 function get_branch {
