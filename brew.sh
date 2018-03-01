@@ -20,6 +20,7 @@ brew install gnu-sed --with-default-names
 
 # good ol' tmux
 brew install tmux
+brew install reattach-to-user-namespace
 
 # Img libs. used by gifify() at .functions
 brew install ffmpeg gifsicle imagemagick
@@ -29,6 +30,11 @@ brew install tree
 brew install htop
 brew install mitmproxy
 brew install the_silver_searcher #AKA Ag:
+
+# javascript-able ctags
+brew unlink ctags
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
 
 # Casks
 brew tap caskroom/cask
@@ -43,3 +49,6 @@ brew cask install react-native-debugger
 
 # GNU core utilities
 brew install coreutils
+
+# Fun and fabulous
+brew cask install vlc
