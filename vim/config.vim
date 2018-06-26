@@ -91,6 +91,9 @@ command! -bang -nargs=* Ag
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
+" call fzf#vim#tags({'options': '-q '.shellescape(expand('<cword>')), 'down': '~40%'})
+" call fzf#vim#tags(expand('<cword>'))
+" ctags --language=javascript -R --exclude=.git --exclude=android
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <Leader>eu :Ag<CR>
 nnoremap <silent> <Leader>fc :Colors<CR>
