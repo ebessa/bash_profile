@@ -118,6 +118,9 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# hide user@hostname
+prompt_context(){}
+
 export WORKON_HOME=$HOME/.virtualenvs
 export LANG="en_US.UTF-8"
 
