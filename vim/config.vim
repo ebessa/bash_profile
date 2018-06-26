@@ -23,7 +23,9 @@ let g:NERDSpaceDelims = 1
 " </Nerdcommenter>
 
 " <NERDTree>
+let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeWinPos = "right"
 map <C-n> :NERDTreeToggle<CR>
 " change vim's root directory whe 'C' in nerdtree
