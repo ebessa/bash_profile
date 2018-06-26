@@ -4,6 +4,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 mkdir ~/.vim/backup
 ln -s ~/Projects/dotfiles/.zshrc ~/.zshrc
+ln -s ~/Projects/dotfiles/.gitignore_global ~/.gitignore_global
 ln -s ~/Projects/dotfiles/.dircolors ~/.dircolors
 ln -s ~/Projects/dotfiles/.functions ~/.functions
 ln -s ~/Projects/dotfiles/tmux ~/tmux
