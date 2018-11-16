@@ -10,6 +10,10 @@ if (has("termguicolors"))                           " Set 16m colors.
 endif
 " </InitialConfig>
 
+" draw a vertical line at specified column.
+autocmd FileType python set colorcolumn=99
+autocmd FileType javascript set colorcolumn=120
+
 set list                                            " show invisibles
 set listchars=tab:⇥',trail:␣                        " make tab char visible as codebase uses spaces
 set nowrap                                          " don't wrap text
@@ -22,7 +26,6 @@ set showmatch                                       " Show matching brackets.
 set noswapfile                                      " dont't write .swp files.
 set clipboard=unnamed                               " enable copy/past between vim/OS.
 set backupdir=$HOME/.vim/backup//                   " Set backup dir.
-set colorcolumn=120                                 " draw a vertical line at specified column.
 set laststatus=2                                    " Always show status line
 set hlsearch                                        " highlight all search matches
 set incsearch                                       " start searching when you type the first character of the search string
