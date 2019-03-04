@@ -27,6 +27,7 @@ Plug 'tpope/vim-obsession'
 Plug 't9md/vim-choosewin'
 Plug 'marijnh/tern_for_vim'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern tern-jsx' }
+Plug 'ludovicchabant/vim-gutentags'
 " Plug 'garbas/vim-snipmate'
 " Plug 'xolox/vim-notes'
 " Plug 'junegunn/vim-emoji'
