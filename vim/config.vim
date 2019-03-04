@@ -70,8 +70,28 @@ nmap <leader>> <Plug>AirlineSelectNextTab
 " let g:airline#extensions#tabline#formatter = 'jsformatter' "show the folder name
 " </Airline>
 
+" <Tern>
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+" </Tern>
+
 " <Deoplete>
+call deoplete#custom#option({'complete_method': 'omnifunc'})
+call deoplete#custom#option({
+\ 'auto_complete_delay': 200,
+\ })
+call deoplete#custom#source('omni', 'functions', {
+\ 'javascript': ['tern#Complete']
+\ })
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#include_keywords = 1
+let g:deoplete#sources#ternjs#filetypes = [
+\ 'jsx',
+\ 'javascript.jsx',
+\ 'vue'
+\ ]
 " <Deoplete>
 
 " <VimJsx>
@@ -110,3 +130,9 @@ nnoremap <silent> <Leader>lb :BLines<CR>
 " <ChooseWin>
 map <C-L> <Plug>(choosewin)
 " </ChooseWin>
+
+" <Neosnipets>
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+" </Neosnipets>

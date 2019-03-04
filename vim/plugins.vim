@@ -4,11 +4,9 @@
 ":PlugInstall
 call plug#begin('~/.vim/plugged')
 Plug 'romainl/Apprentice'
-" <Deoplete>
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'roxma/nvim-yarp'
-" Plug 'roxma/vim-hug-neovim-rpc'
-" </Deoplete>
+Plug 'Shougo/deoplete.nvim', {'do': 'python3 -m pip install pynvim'}
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'Yggdroot/indentLine'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -27,6 +25,8 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-obsession'
 Plug 't9md/vim-choosewin'
+Plug 'marijnh/tern_for_vim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern tern-jsx' }
 " Plug 'garbas/vim-snipmate'
 " Plug 'xolox/vim-notes'
 " Plug 'junegunn/vim-emoji'
