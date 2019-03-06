@@ -1,3 +1,6 @@
+" <Python-Mode>
+let g:pymode_lint_cwindow = 1
+" </Python-Mode>
 " <IndentLine>
 let g:indentLine_char = '│'
 " </IndentLine>

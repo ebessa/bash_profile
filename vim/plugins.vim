@@ -4,9 +4,12 @@
 ":PlugInstall
 call plug#begin('~/.vim/plugged')
 Plug 'romainl/Apprentice'
+" deoplete {{{
 Plug 'Shougo/deoplete.nvim', {'do': 'python3 -m pip install pynvim'}
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+" }}}
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'Yggdroot/indentLine'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
