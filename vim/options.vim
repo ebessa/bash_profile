@@ -21,6 +21,7 @@ set ruler                                           " Show the line and column n
 set nocompatible                                    " Be iMproved, disable vi compatability mode
 set expandtab                                       " insert space characters whenever the tab key is pressed. if you want to enter a real tab character use Ctrl-V<Tab>
 set tabstop=2                                       " set the default tab width
+set softtabstop=2                                   " delete X whitespaces when pressing backspace
 set shiftwidth=2                                    " Indentation <, =, >.
 set showmatch                                       " Show matching brackets.
 set noswapfile                                      " dont't write .swp files.
