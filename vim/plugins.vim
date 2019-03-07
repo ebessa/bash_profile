@@ -9,6 +9,9 @@ Plug 'Shougo/deoplete.nvim', {'do': 'python3 -m pip install pynvim'}
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 " }}}
+Plug 'godlygeek/tabular'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'Yggdroot/indentLine'
 Plug 'Shougo/neosnippet.vim'
