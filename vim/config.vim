@@ -7,6 +7,7 @@ let g:indentLine_char = '│'
 
 " <ALELinter>
 " let g:ale_fix_on_save = 1
+
 let g:ale_fixers = {
 \  'javascript': ['prettier', 'eslint']
 \}
@@ -30,7 +31,7 @@ let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeWinPos = "right"
-map <C-n> :NERDTreeToggle<CR>
+map <expr> <C-n> NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : ':NERDTreeFind<CR>'
 " change vim's root directory whe 'C' in nerdtree
 let g:NERDTreeChDirMode=2
 
