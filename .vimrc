@@ -1,3 +1,8 @@
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " vim options
 if filereadable(expand('~/vim/options.vim')) | source ~/vim/options.vim | endif
 
