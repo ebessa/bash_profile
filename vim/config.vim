@@ -1,11 +1,11 @@
-" <Python-Mode>
+" Python-Mode {{{
 let g:pymode_lint_cwindow = 1
-" </Python-Mode>
-" <IndentLine>
+" Python-Mode }}}
+" IndentLine {{{
 let g:indentLine_char = '│'
-" </IndentLine>
+" IndentLine }}}
 
-" <ALELinter>
+" ALELinter {{{
 " let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
@@ -16,17 +16,17 @@ let g:ale_open_list = 0
 let g:ale_set_quickfix = 1
 let g:ale_keep_list_window_open = 1
 let g:ale_javascript_eslint_options = "--config /opt/loggi/web-builder/config/eslint.json"
-" </ALELinter>
+" ALELinter }}}
 
-" <Editorconfig>
+" Editorconfig {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-" </Editorconfig>
+" Editorconfig }}}
 
-" <Nerdcommenter>
+" Nerdcommenter {{{
 let g:NERDSpaceDelims = 1
-" </Nerdcommenter>
+" Nerdcommenter }}}
 
-" <NERDTree>
+" NERDTree {{{
 let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
@@ -50,9 +50,9 @@ endfunction
   call NERDTreeHighlightFile('editorconfig', 'Gray', 'none', '#686868', '#151515')
   call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
   call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
-" </NERDTree>
+" NERDTree }}}
 
-" <Airline>
+" Airline {{{
 let g:airline_powerline_fonts = 1                   " will automatically populate the g:airline_symbols dictionary with the powerline symbols.
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
@@ -72,14 +72,14 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 nmap <leader>< <Plug>AirlineSelectPrevTab
 nmap <leader>> <Plug>AirlineSelectNextTab
 " let g:airline#extensions#tabline#formatter = 'jsformatter' "show the folder name
-" </Airline>
+" Airline }}}
 
-" <Tern>
+" Tern {{{
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
-" </Tern>
+" Tern }}}
 
-" <Deoplete>
+" Deoplete {{{
 call deoplete#custom#option({'complete_method': 'omnifunc'})
 call deoplete#custom#option({
 \ 'auto_complete_delay': 200,
@@ -100,13 +100,13 @@ let g:deoplete#sources#ternjs#filetypes = [
 
 " <VimJsx>
 let g:jsx_ext_required = 0
-" </VimJsx>
+" VimJsx }}}
 
-" <ColorScheme>
+" ColorScheme {{{
 colorscheme apprentice                              " set the color scheme
-" </ColorScheme>
+" ColorScheme }}}
 
-" <FZF>
+" FZF {{{
 "   :Ag! - Start fzf in fullscreen and display the preview window above
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
@@ -129,14 +129,14 @@ nnoremap <silent> <Leader>; :Commands<CR>
 nnoremap <silent> <Leader>h :Helptags<CR>
 nnoremap <silent> <Leader>ll :Lines<CR>
 nnoremap <silent> <Leader>lb :BLines<CR>
-" </FZF>
+" FZF }}}
 
-" <ChooseWin>
+" ChooseWin {{{
 map <C-L> <Plug>(choosewin)
-" </ChooseWin>
+" ChooseWin }}}
 
-" <Neosnipets>
+" Neosnipets {{{
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-" </Neosnipets>
+" Neosnipets }}}

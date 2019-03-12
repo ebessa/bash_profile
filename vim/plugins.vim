@@ -1,4 +1,4 @@
-" <PluginList>
+" PluginList {{{
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ":PlugInstall
@@ -8,7 +8,7 @@ Plug 'romainl/Apprentice'
 Plug 'Shougo/deoplete.nvim', {'do': 'python3 -m pip install pynvim'}
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-" }}}
+" deoplete }}}
 Plug 'godlygeek/tabular'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-fugitive'
@@ -43,4 +43,4 @@ Plug 'xolox/vim-notes'
 " Plug 'junegunn/vim-emoji'
 " Plug 'easymotion/vim-easymotion'
 call plug#end()
-" </PluginList>
+" PluginList }}}
