@@ -52,3 +52,6 @@ brew install coreutils
 
 # Fun and fabulous
 brew cask install vlc
+
+# highlight in vim's fzf
+brew install highlight
