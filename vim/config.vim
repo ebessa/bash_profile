@@ -76,7 +76,7 @@ nmap <leader>> <Plug>AirlineSelectNextTab
 
 " <Tern>
 let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+let g:tern#arguments = ["--persistent", "--no-port-file"]
 " </Tern>
 
 " <Deoplete>
@@ -144,4 +144,5 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " gutentags {{{
 let g:gutentags_cache_dir='~/.vim/tags/'
+let g:gutentags_generate_on_empty_buffer=1
 " }}}
