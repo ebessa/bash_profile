@@ -5,6 +5,9 @@ export TMUX_TMPDIR=$HOME/.tmux
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
+# lets try MacPorts a bit
+export PATH=$HOME/macports/bin:$HOME/macports/sbin:$PATH
+export MANPATH=$HOME/macports/share/man:$MANPATH
 #hey, ho, lets GO
 export GOPATH=$HOME/Go
 export GOROOT=/usr/local/opt/go/libexec
