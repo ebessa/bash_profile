@@ -55,3 +55,6 @@ brew cask install vlc
 
 # I use this to generate pdfs from source code
 brew install source-highlight
+
+# highlight in vim's fzf
+brew install highlight

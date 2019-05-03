@@ -87,6 +87,7 @@ call deoplete#custom#option({
 call deoplete#custom#source('omni', 'functions', {
 \ 'javascript': ['tern#Complete']
 \ })
+" let g:python3_host_prog='~/macports/bin/python'
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#docs = 1
@@ -140,3 +141,7 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 " Neosnipets }}}
+
+" gutentags {{{
+let g:gutentags_cache_dir='~/.vim/tags/'
+" }}}
