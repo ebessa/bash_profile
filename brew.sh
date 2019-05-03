@@ -52,3 +52,6 @@ brew install coreutils
 
 # Fun and fabulous
 brew cask install vlc
+
+# I use this to generate pdfs from source code
+brew install source-highlight
