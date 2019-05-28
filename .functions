@@ -68,3 +68,32 @@ function gtag { # create and push tag in the format yymmdd_hhmm
     echo "Created tag $DTIME. Pushing to remote repository..."
     git tag "$DTIME" && git push origin "$DTIME"
 }
+
+function genhtml {
+  for folder in $(echo *); do
+    mkdir "$folder/htmls"
+
+    for file in $(find $folder/**/*.js -type f -not -path *npm/* -not -path *__tests__*); do
+      source-highlight \
+        --doc \
+        --css "$HOME/Projects/dotfiles/mono.css" \
+        --lang-def ~/Projects/dotfiles/javascript.lang \
+        --src-lang javascript \
+        --out-format xhtml \
+        --input $file \
+        --output "$folder/htmls/$(sed -e 's/\//./g' -e 's/src\.//g' <<< $file).html";
+    done;
+  done;
+}
+
+function movepdf {
+  mv "temp.pdf" "$1"
+}
+
+function genpdf {
+  for file in $(find **/*.js.html); do
+    cat $file | wkhtmltopdf - "temp.pdf";
+    pdfname=$(echo "$(sed -e 's/.*htmls\///g; s/\.html/\.pdf/g' <<< $file)");
+    movepdf $pdfname
+  done
+}

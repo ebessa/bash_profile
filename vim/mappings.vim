@@ -16,6 +16,12 @@ no <left> <Nop>
 " down arrow move line down
 no <down> :m +1<CR>
 
+" down arrow moves selected block down 1 line
+vmap <up> xkP'[V']
+
+" up arrow moves selected block down 1 line
+vmap <down> xp'[V']
+
 " write buffer to file
 nmap <leader>w :w<CR>
 

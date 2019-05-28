@@ -1,4 +1,4 @@
-" <InitialConfig>
+" InitialConfig {{{
 syntax on
 filetype plugin indent on 
 
@@ -8,7 +8,7 @@ let g:mapleader=","
 if (has("termguicolors"))                           " Set 16m colors.
  set termguicolors
 endif
-" </InitialConfig>
+" InitialConfig }}}
 
 " draw a vertical line at specified column.
 autocmd FileType python set colorcolumn=99
