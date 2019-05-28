@@ -31,7 +31,21 @@ let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeWinPos = "right"
-map <expr> <C-n> NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : ':NERDTreeFind<CR>'
+
+" this func was suposed to be a clearer way to open or close nerdtree. But it
+" is hanging with a generic python error message, so I had to fallback to that
+" ugly <expr> bellow
+" function! OpenNERDTree()
+  " if bufname('%') == '' " check if this buffer does not exist as a file yet
+    "':NERDTreeOpen'
+  " elseif NERDTree.IsOpen()
+    " :NERDTreeClose
+  " else
+    " :NERDTreeFind
+  " endif
+" endfunction
+map <expr> <C-n> NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : (bufname('%') == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>')
+
 " change vim's root directory whe 'C' in nerdtree
 let g:NERDTreeChDirMode=2
 
