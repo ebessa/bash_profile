@@ -5,14 +5,26 @@ export TMUX_TMPDIR=$HOME/.tmux
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
+# this is here to accomodate now-admin os :(
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+export PATH="$HOME/.brew/bin:$HOME/.brew/sbin:$PATH"
+
 # lets try MacPorts a bit
 export PATH=$HOME/macports/bin:$HOME/macports/sbin:$PATH
 export MANPATH=$HOME/macports/share/man:$MANPATH
+
+# pyenv
+# PYENV_VERSION=3.7.2
+# eval "$(pyenv init -)"
+
 #hey, ho, lets GO
 export GOPATH=$HOME/Go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# gnu-sed
+export PATH="$HOME/.brew/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -22,10 +34,12 @@ export PATH=$PATH:/Users/erick.bessa/Library/Android/sdk/tools:/Users/erick.bess
 export ANDROID_SDK_ROOT=/Users/erick.bessa/Library/Android/sdk
 export ANDROID_HOME=/Users/erick.bessa/Library/Android/sdk
 
+
 # nvm
-NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+  [ -s "$HOME/.brew/opt/nvm/nvm.sh" ] && . "$HOME/.brew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "$HOME/.brew/opt/nvm/etc/bash_completion" ] && . "$HOME/.brew/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
 
 # add tmux environments
 for f in $HOME/tmux/.tmux*; do
@@ -103,6 +117,8 @@ export LC_MONETARY="en_US.UTF-8"
 export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL=
+export LDFLAGS="-L$HOME/.brew/opt/zlib/lib"
+export CPPFLAGS="-I$HOME/.brew/opt/zlib/include"
 
 export EDITOR='vim'
 
@@ -129,9 +145,10 @@ export LANG="en_US.UTF-8"
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
-VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
-VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
+VIRTUALENVWRAPPER_PYTHON=$HOME/macports/bin/python3.7
+export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/macports/bin/virtualenv-3.7
+export VIRTUALENVWRAPPER_VIRTUALENV_CLONE=$HOME/macports/bin/virtualenv-clone-3.7
+source $HOME/macports/bin/virtualenvwrapper.sh-3.7
 
 # Hist
 HISTFILESIZE=1000000000
@@ -160,3 +177,5 @@ alias rmlocalbranch='git tag -l | xargs git tag -d && git fetch'
 alias reset-loggi='loggi down && loggi up && loggi setup-dev-db'
 alias rshake='adb shell input keyevent 82'
 alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
