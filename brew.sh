@@ -22,9 +22,6 @@ brew install gnu-sed --with-default-names
 brew install tmux
 brew install reattach-to-user-namespace
 
-# Img libs. used by gifify() at .functions
-brew install ffmpeg gifsicle imagemagick
-
 # Some useful binaries
 brew install tree
 brew install htop
@@ -35,17 +32,6 @@ brew install the_silver_searcher #AKA Ag:
 brew unlink ctags
 brew tap universal-ctags/universal-ctags
 brew install --HEAD universal-ctags
-
-# Casks
-brew tap caskroom/cask
-
-# Android development
-brew cask install java
-brew cask install android-studio
-brew cask install android-platform-tools
-
-# react-native
-brew cask install react-native-debugger
 
 # GNU core utilities
 brew install coreutils
