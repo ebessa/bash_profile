@@ -162,10 +162,15 @@ export LANG="en_US.UTF-8"
 
 # Python
 export WORKON_HOME=$HOME/.virtualenvs
-VIRTUALENVWRAPPER_PYTHON=$HOME/macports/bin/python3.7
-export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/macports/bin/virtualenv-3.7
-export VIRTUALENVWRAPPER_VIRTUALENV_CLONE=$HOME/macports/bin/virtualenv-clone-3.7
-source $HOME/macports/bin/virtualenvwrapper.sh-3.7
+export VIRTUALENVWRAPPER_PYTHON=`which python3`
+export VIRTUALENVWRAPPER_VIRTUALENV=`which virtualenv`
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+else
+    echo ">>>>NO virtualenv found<<<<"
+fi
 
 # Hist
 HISTFILESIZE=1000000000
