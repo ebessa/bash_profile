@@ -17,11 +17,13 @@ export MANPATH=$HOME/macports/share/man:$MANPATH
 # PYENV_VERSION=3.7.2
 # eval "$(pyenv init -)"
 
+# doing brew --prefix packagename takes .5 seconds... this quickly add up to login time
+BREW_PREFIX=/usr/local/opt/
+
 #hey, ho, lets GO
 export GOPATH=$HOME/Go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOROOT="$BREW_PREFIX/go/libexec"
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # gnu-sed
 export PATH="$HOME/.brew/opt/gnu-sed/libexec/gnubin:$PATH"
@@ -35,11 +37,26 @@ export ANDROID_SDK_ROOT=/Users/erick.bessa/Library/Android/sdk
 export ANDROID_HOME=/Users/erick.bessa/Library/Android/sdk
 
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-  [ -s "$HOME/.brew/opt/nvm/nvm.sh" ] && . "$HOME/.brew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "$HOME/.brew/opt/nvm/etc/bash_completion" ] && . "$HOME/.brew/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-NVM_NODEJS_ORG_MIRROR="https://nodejs.org/dist"
+# lazyload nvm
+load_nvm() {
+  unset -f node nvm npm
+  BREW_NVM_DIR="$BREW_PREFIX/nvm"
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$BREW_NVM_DIR/etc/bash_completion" ] && . "$BREW_NVM_DIR/etc/bash_completion"  # This loads nvm bash_completion
+  [ -s "$BREW_NVM_DIR/nvm.sh" ] && . "$BREW_NVM_DIR/nvm.sh"  # This loads nvm
+}
+nvm() {
+  load_nvm
+  nvm "$@"
+}
+npm() {
+  load_nvm
+  npm "$@"
+}
+node() {
+  load_nvm
+  node "$@"
+}
 
 # add tmux environments
 for f in $HOME/tmux/.tmux*; do
