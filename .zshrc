@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # tmux temp path
 export TMUX_TMPDIR=$HOME/.tmux
 
@@ -6,12 +7,9 @@ export TMUX_TMPDIR=$HOME/.tmux
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # this is here to accomodate now-admin os :(
+export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PATH="$HOME/.brew/bin:$HOME/.brew/sbin:$PATH"
-
-# lets try MacPorts a bit
-export PATH=$HOME/macports/bin:$HOME/macports/sbin:$PATH
-export MANPATH=$HOME/macports/share/man:$MANPATH
 
 # pyenv
 # PYENV_VERSION=3.7.2
@@ -201,3 +199,4 @@ alias rshake='adb shell input keyevent 82'
 alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# zprof
