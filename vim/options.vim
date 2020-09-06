@@ -14,6 +14,7 @@ endif
 autocmd FileType python set colorcolumn=99
 autocmd FileType javascript set colorcolumn=120
 
+set conceallevel=0                                  " don't hide quotes in json files
 set diffopt=filler,iwhite                           " disable whitespace diff \| internal,filler
 set list                                            " show invisibles
 set listchars=tab:⇥',trail:␣                        " make tab char visible as codebase uses spaces
