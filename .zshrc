@@ -16,7 +16,7 @@ export PATH="$HOME/.brew/bin:$HOME/.brew/sbin:$PATH"
 # eval "$(pyenv init -)"
 
 # doing brew --prefix packagename takes .5 seconds... this quickly add up to login time
-BREW_PREFIX=/usr/local/opt/
+BREW_PREFIX="$(brew --prefix)/opt"
 
 #hey, ho, lets GO
 export GOPATH=$HOME/Go
@@ -199,4 +199,13 @@ alias rshake='adb shell input keyevent 82'
 alias rreload='adb shell input keyevent 82 && adb shell input keyevent 19 && adb shell input keyevent 23'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Custom cli's
+PATH=$HOME/cli:$PATH
+
+# verify cypress
+function vcypress() {
+  npx cypress cache path
+  npx cypress cache list
+  npx cypress verify
+}
 # zprof
