@@ -44,3 +44,11 @@ brew install source-highlight
 
 # highlight in vim's fzf
 brew install highlight
+
+# Go lang
+brew install go
+go get -u golang.org/x/lint/golint
+go get golang.org/x/tools/cmd/godoc
+
+# Shell check
+brew install shellcheck
