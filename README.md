@@ -2,6 +2,7 @@ Fonts: https://github.com/powerline/fonts
 
 
 ```bash
+git update-index --assume-unchanged .gitconfig
 mkdir ~/.tmux/
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
